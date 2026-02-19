@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fidel Kyalo | Portfolio</title>
+
+    <!-- 1. EXTERNAL LIBRARIES (CDN) -->
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- React & ReactDOM Core (Standalone UMD) -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <!-- Framer Motion (Animations) -->
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- 2. TAILWIND CONFIGURATION -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            DEFAULT: '#FFD700',
+                            light: '#F4CF57',
+                            dark: '#B48F17',
+                        }
+                    },
+                    animation: { float: 'float 6s ease-in-out infinite' },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- 3. CUSTOM CSS -->
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+        :root {
+            font-family: 'Inter', sans-serif;
+            color-scheme: dark;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            margin: 0;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.15) 0%, transparent 50%), radial-gradient(circle at 0% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+        }
+
+        .glass-card {
+            background: rgba(24, 24, 27, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(212, 175, 55, 0.5);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #F4CF57;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <!-- 4. PURE JAVASCRIPT APP (Compatible with direct file opening) -->
+    <script>
+        // Shortcuts for cleaner code
+        const { useState, useEffect, useRef, createElement: h } = React;
+        const { motion, AnimatePresence } = Motion;
+
+        // --- ICON COMPONENT ---
+        const Icon = ({ name, size = 20, className = "" }) => {
+            const iconRef = useRef(null);
+            useEffect(() => {
+                if (iconRef.current) {
+                    lucide.createIcons({
+                        attrs: { class: className, width: size, height: size, 'stroke-width': 2 },
+                        name: name
+                    });
+                }
+            }, [name, size, className]);
+            return h('i', { 'data-lucide': name, ref: iconRef, className: className });
+        };
+
+        // --- MATRIX BACKGROUND ---
+        const CodeBackground = () => {
+            const canvasRef = useRef(null);
+            useEffect(() => {
+                const canvas = canvasRef.current;
+                const ctx = canvas.getContext('2d');
+                let width = canvas.width = window.innerWidth;
+                let height = canvas.height = window.innerHeight;
+                const chars = "10";
+                const fontSize = 14;
+                const columns = width / fontSize;
+                const drops = Array(Math.floor(columns)).fill(1);
+                const draw = () => {
+                    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                    ctx.fillRect(0, 0, width, height);
+                    ctx.fillStyle = '#D4AF37';
+                    ctx.font = `${fontSize}px monospace`;
+                    for (let i = 0; i < drops.length; i++) {
+                        const text = chars.charAt(Math.floor(Math.random() * chars.length));
+                        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                        if (drops[i] * fontSize > height && Math.random() > 0.975) drops[i] = 0;
+                        drops[i]++;
+                    }
+                };
+                const interval = setInterval(draw, 33);
+                const handleResize = () => { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; };
+                window.addEventListener('resize', handleResize);
+                return () => { clearInterval(interval); window.removeEventListener('resize', handleResize); };
+            }, []);
+            return h('canvas', { ref: canvasRef, className: "fixed top-0 left-0 w-full h-full opacity-20 pointer-events-none z-0" });
+        };
+
+        // --- PROJECT CARD ---
+        const ProjectCard = ({ project, index }) => {
+            return h(motion.div, {
+                initial: { opacity: 0, y: 20 },
+                whileInView: { opacity: 1, y: 0 },
+                transition: { duration: 0.5, delay: index * 0.1 },
+                viewport: { once: true },
+                className: "glass-card p-6 rounded-xl relative group overflow-hidden flex flex-col h-full"
+            }, [
+                h('div', { className: "absolute top-0 right-0 p-4 opacity-50 group-hover:opacity-100 transition-opacity" },
+                    h(Icon, { name: project.iconName, size: 32, className: "text-gold" })
+                ),
+                h('h3', { className: "text-2xl font-bold mb-3 text-white group-hover:text-gold transition-colors" }, project.title),
+                h('p', { className: "text-gray-400 mb-6 line-clamp-3" }, project.description),
+
+                // --- UI UPDATE: Removed tags/languages section ---
+
+                h('div', { className: "flex items-center gap-4 mt-auto" }, [
+                    // --- UI UPDATE: Removed GitHub Source link ---
+                    h('a', { href: project.links.live, target: "_blank", rel: "noopener noreferrer", className: "flex items-center gap-2 text-sm text-gray-300 hover:text-gold transition-colors font-medium border border-white/10 px-4 py-2 rounded-lg hover:bg-gold/5" }, [
+                        h(Icon, { name: "external-link", size: 18 }),
+                        h('span', null, "Live") // --- UI UPDATE: Changed 'Live Demo' to 'Live' ---
+                    ])
+                ])
+            ]);
+        };
+
+        // --- PROJECTS SECTION ---
+        const Projects = () => {
+            const projects = [
+                {
+                    title: "Water For Children Africa",
+                    description: "A professional website for Water For Children Africa, focusing on clean water initiatives across the continent.",
+                    links: { live: "https://waterforchildrenafrica.pizzatechnologies.co.ke/" },
+                    iconName: "globe"
+                },
+                {
+                    title: "Keith Baraka Portfolio",
+                    description: "A personalized developer portfolio showcasing the skills, projects, and professional background of Keith Baraka.",
+                    links: { live: "https://www.keith.pizzatechnologies.co.ke/" },
+                    iconName: "user"
+                },
+                {
+                    title: "Reux Productions Website",
+                    description: "Official website for Reux Productions, a company specializing in high-quality photography and videography. (Ongoing Project)",
+                    links: { live: "#" },
+                    iconName: "camera"
+                }
+            ];
+            return h('section', { id: "projects", className: "py-20 px-4 md:px-8 relative" },
+                h('div', { className: "max-w-6xl mx-auto" }, [
+                    h(motion.div, { initial: { opacity: 0, y: -20 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true }, className: "text-center mb-16" }, [
+                        h('h2', { className: "text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent mb-4" }, "Featured Projects"),
+                        h('p', { className: "text-gray-400 max-w-2xl mx-auto" }, "A selection of my recent work building scalable web applications.")
+                    ]),
+                    h('div', { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" },
+                        projects.map((p, i) => h(ProjectCard, { key: p.title, project: p, index: i }))
+                    )
+                ])
+            );
+        };
+
+        // --- MAIN APP ---
+        function App() {
+            const [showScroll, setShowScroll] = useState(false);
+            useEffect(() => {
+                const checkScrollTop = () => {
+                    if (!showScroll && window.pageYOffset > 400) setShowScroll(true);
+                    else if (showScroll && window.pageYOffset <= 400) setShowScroll(false);
+                };
+                window.addEventListener('scroll', checkScrollTop);
+                return () => window.removeEventListener('scroll', checkScrollTop);
+            }, [showScroll]);
+            const scrollTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            return h('div', { className: "min-h-screen bg-black text-white overflow-x-hidden relative" }, [
+                h(CodeBackground),
+                h('nav', { className: "fixed top-0 left-0 right-0 z-50 glass-card border-b border-white/10 px-6 py-4" },
+                    h('div', { className: "max-w-6xl mx-auto flex justify-between items-center" }, [
+                        h('a', { href: "#home", className: "text-xl font-bold text-gold hover:text-white transition-colors" }, "Fidel Kyalo"),
+                        h('div', { className: "flex items-center gap-8" }, [
+                            h('ul', { className: "hidden md:flex gap-6" }, [
+                                h('li', null, h('a', { href: "#home", className: "hover:text-gold transition-colors" }, "Home")),
+                                h('li', null, h('a', { href: "#about", className: "hover:text-gold transition-colors" }, "About")),
+                                h('li', null, h('a', { href: "#projects", className: "hover:text-gold transition-colors" }, "Projects")),
+                                h('li', null, h('a', { href: "#contact", className: "hover:text-gold transition-colors" }, "Contact"))
+                            ]),
+                            h('div', { className: "flex gap-4 border-l border-white/20 pl-6" }, [
+                                h('a', { href: "https://www.linkedin.com/in/fidel-mutunga-bb726129a/", target: "_blank", className: "hover:text-gold" }, h(Icon, { name: "linkedin" })),
+                                h('a', { href: "https://github.com/Fidelkyalo", target: "_blank", className: "hover:text-gold" }, h(Icon, { name: "github" })),
+                                h('a', { href: "mailto:fidel@pizzatechnologies.co.ke", className: "hover:text-gold" }, h(Icon, { name: "mail" }))
+                            ])
+                        ])
+                    ])
+                ),
+                h('main', { className: "pt-20" }, [
+                    h('section', { id: "home", className: "min-h-screen flex items-center justify-center relative overflow-hidden px-4" },
+                        h('div', { className: "max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16 z-10 w-full" }, [
+                            h('div', { className: "text-center md:text-left flex-1" }, [
+                                h(motion.p, { initial: { x: -100, opacity: 0 }, animate: { x: 0, opacity: 1 }, transition: { duration: 0.8, delay: 0.2 }, className: "text-gold font-bold mb-6 tracking-wider uppercase text-2xl" }, "Hi, I'm Fidel Kyalo"),
+                                h(motion.h1, { initial: { x: -100, opacity: 0 }, animate: { x: 0, opacity: 1 }, transition: { duration: 0.8, delay: 0.4 }, className: "text-6xl md:text-8xl font-bold mb-8 leading-tight" }, ["Building Digital ", h('br'), h('span', { className: "text-gold" }, "Experiences")]),
+                                h(motion.p, { initial: { x: -100, opacity: 0 }, animate: { x: 0, opacity: 1 }, transition: { duration: 0.8, delay: 0.6 }, className: "text-2xl text-blue-400 mb-10 font-medium" }, "Fullstack Developer | Information Systems Analyst"),
+                                h(motion.div, { initial: { x: -100, opacity: 0 }, animate: { x: 0, opacity: 1 }, transition: { duration: 0.8, delay: 0.8 } },
+                                    h('a', { href: "#projects", className: "px-10 py-4 bg-gold text-black font-bold text-lg rounded-full hover:bg-white transition-all transform hover:scale-105" }, "View Work")
+                                )
+                            ]),
+                            h('div', { className: "flex-1 flex justify-center perspective-1000" },
+                                h(motion.img, { src: "./images/home.png", alt: "Developer", className: "w-full max-w-[500px] aspect-[4/5] object-cover rounded-[50%] drop-shadow-2xl animate-float", initial: { scale: 0, opacity: 0 }, animate: { scale: 1, opacity: 1 }, transition: { duration: 1.2, delay: 0.5 } })
+                            )
+                        ])
+                    ),
+                    h('section', { id: "about", className: "py-24 border-t border-white/5 bg-white/5 relative z-10" },
+                        h('div', { className: "max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16 px-6 w-full" }, [
+                            h('div', { className: "flex-1 max-w-md" }, h('img', { src: "./images/about.jpg", alt: "About Me", className: "w-full rounded-2xl drop-shadow-2xl hover:scale-105 transition-transform duration-500 cursor-pointer object-cover" })),
+                            h('div', { className: "flex-1" }, [
+                                h('h2', { className: "text-4xl font-bold mb-8 text-gold" }, "About Me & Experience"),
+                                h('p', { className: "text-gray-300 mb-8 leading-loose text-lg" }, "I am a passionate Full Stack Developer based in Nairobi. Specializing in building accessible, performant, and beautiful web applications with modern technologies."),
+                                h('div', { className: "space-y-6" }, [
+                                    h('div', { className: "glass-card p-6 rounded-xl border-l-4 border-gold" }, [
+                                        h('h3', { className: "text-xl font-bold text-white" }, "Education"),
+                                        h('p', { className: "text-gray-300" }, "Bsc. Computer Science specialized with Software development"),
+                                        h('p', { className: "text-gold" }, "KCA University (2023-2026)")
+                                    ]),
+                                    h('div', { className: "glass-card p-6 rounded-xl border-l-4 border-blue-400" }, [
+                                        h('h3', { className: "text-xl font-bold text-white" }, "Experience"),
+                                        h('p', { className: "text-gray-300" }, ["Web Developer at ", h('a', { href: "https://pizzatechnologies.co.ke", target: "_blank", className: "text-gold hover:underline" }, "Pizza Technologies")])
+                                    ])
+                                ])
+                            ])
+                        ])
+                    ),
+                    h(Projects),
+                    h('section', { id: "contact", className: "py-20 border-t border-white/5 relative z-10" },
+                        h('div', { className: "max-w-4xl mx-auto px-6 text-center" }, [
+                            h('h2', { className: "text-4xl font-bold mb-8 text-gold" }, "Get In Touch"),
+                            h('p', { className: "text-gray-400 mb-12" }, "Ready to start your next project? Reach out via phone or email."),
+                            h('div', { className: "flex flex-wrap gap-6 justify-center" }, [
+                                h('a', { href: "tel:+254112063383", className: "glass-card px-8 py-6 rounded-xl flex items-center gap-4 hover:scale-105 transition-transform w-full md:w-[45%] justify-center group" }, [
+                                    h(Icon, { name: "phone", className: "text-gold group-hover:text-white" }),
+                                    h('span', { className: "text-lg" }, "+254 112 063 383")
+                                ]),
+                                h('a', { href: "mailto:fidel@pizzatechnologies.co.ke", className: "glass-card px-8 py-6 rounded-xl flex items-center gap-4 hover:scale-105 transition-transform w-full md:w-[45%] justify-center group" }, [
+                                    h(Icon, { name: "mail", className: "text-gold group-hover:text-white" }),
+                                    h('span', { className: "text-lg md:text-md" }, "fidel@pizzatechnologies.co.ke")
+                                ]),
+                                h('a', { href: "mailto:fidelkm16@gmail.com", className: "glass-card px-8 py-6 rounded-xl flex items-center gap-4 hover:scale-105 transition-transform w-full md:w-[45%] justify-center group" }, [
+                                    h(Icon, { name: "mail", className: "text-gold group-hover:text-white" }),
+                                    h('span', { className: "text-lg md:text-md" }, "fidelkm16@gmail.com")
+                                ]),
+                                h('a', { href: "https://www.linkedin.com/in/fidel-mutunga-bb726129a/", target: "_blank", className: "glass-card px-8 py-6 rounded-xl flex items-center gap-4 hover:scale-105 transition-transform w-full md:w-[45%] justify-center group" }, [
+                                    h(Icon, { name: "linkedin", className: "text-gold group-hover:text-white" }),
+                                    h('span', { className: "text-lg" }, "LinkedIn")
+                                ]),
+                                h('a', { href: "https://github.com/Fidelkyalo", target: "_blank", className: "glass-card px-8 py-6 rounded-xl flex items-center gap-4 hover:scale-105 transition-transform w-full md:w-[45%] justify-center group" }, [
+                                    h(Icon, { name: "github", className: "text-gold group-hover:text-white" }),
+                                    h('span', { className: "text-lg" }, "GitHub")
+                                ])
+                            ])
+                        ])
+                    )
+                ]),
+                h('footer', { className: "py-8 text-center text-gray-500 text-sm border-t border-white/10" },
+                    h('p', null, ["© 2026 Fidel Kyalo. All rights reserved || Crafted by ", h('a', { href: "https://pizzatechnologies.co.ke", target: "_blank", className: "text-gold hover:text-white" }, "Pizza Technologies")])
+                ),
+                showScroll && h('button', { onClick: scrollTop, className: "fixed bottom-8 right-8 bg-gold text-black p-4 rounded-full shadow-lg hover:bg-white transition-all z-50 animate-bounce flex items-center justify-center w-14 h-14" },
+                    h(Icon, { name: "arrow-up", size: 24 })
+                )
+            ]);
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(h(App));
+    </script>
+</body>
+
+</html>
