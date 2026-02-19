@@ -4,24 +4,24 @@ import { Github, ExternalLink, Code2, Layout, Database } from 'lucide-react';
 
 const projects = [
     {
-        title: "E-Commerce Platform",
-        description: "A full-featured shopping platform built with Next.js and Stripe integration. Features secure payments, order tracking, and an admin dashboard.",
-        tags: ["Next.js", "Stripe", "Tailwind", "PostgreSQL"],
-        links: { github: "#", live: "#" },
+        title: "Water For Children Africa",
+        description: "A website for Water For Children Africa focusing on clean water initiatives. Features a modern layout and impactful storytelling.",
+        tags: ["HTML", "CSS", "Tailwind"],
+        links: { github: "#", live: "https://waterforchildrenafrica.pizzatechnologies.co.ke/" },
         icon: <Layout className="w-8 h-8 text-gold" />
     },
     {
-        title: "Task Management App",
-        description: "Real-time collaborative task manager using Socket.io and React. Supports team workspaces, file attachments, and live status updates.",
-        tags: ["React", "Node.js", "Socket.io", "MongoDB"],
-        links: { github: "#", live: "#" },
+        title: "Keith Baraka Portfolio",
+        description: "A personalized developer portfolio for Keith Baraka showcasing their skills and projects.",
+        tags: ["HTML", "CSS", "Tailwind"],
+        links: { github: "#", live: "https://www.keith.pizzatechnologies.co.ke/" },
         icon: <Database className="w-8 h-8 text-gold" />
     },
     {
-        title: "Crypto Dashboard",
-        description: "Live cryptocurrency tracking dashboard with interactive charts. Provides real-time market data, portfolio tracking, and price alerts.",
-        tags: ["React", "Chart.js", "CoinGecko API", "Framer Motion"],
-        links: { github: "#", live: "#" },
+        title: "Reux Productions Website",
+        description: "Photography and videography company website. High-quality visual showcase and professional service presentation.",
+        tags: ["React", "Framer Motion", "Tailwind"],
+        links: { github: "#", live: "https://reux-production.vercel.app/" },
         icon: <Code2 className="w-8 h-8 text-gold" />
     }
 ];
