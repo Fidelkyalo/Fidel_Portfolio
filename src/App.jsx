@@ -98,7 +98,7 @@ function App() {
 
             <div className="flex-1 flex justify-center perspective-1000">
               <motion.img
-                src="/images/home.png"
+                src="images/home.png"
                 alt="Developer"
                 className="w-full max-w-[600px] aspect-[4/5] object-cover rounded-[50%] drop-shadow-2xl animate-float hover:scale-105 transition-transform duration-500 ease-out"
                 initial={{ scale: 0, opacity: 0 }}
@@ -116,7 +116,7 @@ function App() {
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16 w-full">
             <div className="flex-1 max-w-md groupPerspective">
               <img
-                src="/images/about.jpg"
+                src="images/about.jpg"
                 alt="About Me"
                 className="w-full rounded-2xl drop-shadow-2xl animate-float hover:scale-105 hover:-rotate-2 transition-all duration-500 cursor-pointer object-cover"
                 style={{ animationDelay: '1s' }}

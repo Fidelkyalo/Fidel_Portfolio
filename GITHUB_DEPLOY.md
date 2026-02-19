@@ -30,9 +30,15 @@ git remote add origin https://github.com/Fidelkyalo/fidel-portfolio.git
 npm run deploy
 ```
 
-## Step 3: Check it out
-*   Once the `npm run deploy` command finishes, your site will be published.
-*   It should be available at: `https://Fidelkyalo.github.io/fidel-portfolio`
-*   (Go to your Repo Settings -> Pages to verify the URL).
+## Step 3: Automatic Sync (New!)
+If you want your changes to be automatically committed and pushed to GitHub whenever you save a file:
+1.  Open your terminal in this folder.
+2.  Run: **`npm run sync`**
+3.  Keep that terminal window open. It will monitor your files and push updates automatically!
 
-> **Note**: If you change anything later, just run `npm run deploy` again to update the live site!
+## Step 4: Check it out
+*   Once the deployment or sync finishes, your site will be updated.
+*   URL: `https://Fidelkyalo.github.io/fidel-portfolio`
+*   (Verify in Repo Settings -> Pages).
+
+> **Note**: You can still use `npm run deploy` for manual deployment to GitHub Pages.
