@@ -24,7 +24,7 @@ git branch -M main
 # 4. Connect to your new repository
 # REPLACE 'Fidelkyalo' with your actual username if different
 # REPLACE 'fidel-portfolio' with your actual repo name
-git remote add origin https://github.com/Fidelkyalo/fidel-portfolio.git
+git remote add origin https://github.com/Fidelkyalo/Fidel_portfolio.git
 
 # 5. Deploy!
 npm run deploy
@@ -38,7 +38,7 @@ If you want your changes to be automatically committed and pushed to GitHub when
 
 ## Step 4: Check it out
 *   Once the deployment or sync finishes, your site will be updated.
-*   URL: `https://Fidelkyalo.github.io/fidel-portfolio`
+*   URL: `https://Fidelkyalo.github.io/Fidel_portfolio`
 *   (Verify in Repo Settings -> Pages).
 
 > **Note**: You can still use `npm run deploy` for manual deployment to GitHub Pages.
