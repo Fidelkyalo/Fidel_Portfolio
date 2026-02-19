@@ -4,25 +4,28 @@ import { Github, ExternalLink, Code2, Layout, Database } from 'lucide-react';
 
 const projects = [
     {
-        title: "Water For Children Africa",
-        description: "A website for Water For Children Africa focusing on clean water initiatives. Features a modern layout and impactful storytelling.",
-        tags: ["HTML", "CSS", "Tailwind"],
-        links: { github: "#", live: "https://waterforchildrenafrica.pizzatechnologies.co.ke/" },
+        title: "Hope Valley Scholars",
+        description: "An educational platform for Hope Valley Scholars focusing on accessibility and scholarship management. (Ongoing)",
+        links: { github: "#", live: "https://hope-valley-scholars.vercel.app/" },
         icon: <Layout className="w-8 h-8 text-gold" />
     },
     {
-        title: "Keith Baraka Portfolio",
-        description: "A personalized developer portfolio for Keith Baraka showcasing their skills and projects.",
-        tags: ["HTML", "CSS", "Tailwind"],
-        links: { github: "#", live: "https://www.keith.pizzatechnologies.co.ke/" },
+        title: "Hotel Management System",
+        description: "A comprehensive hotel management solution featuring room bookings, status tracking, and guest management. (Ongoing)",
+        links: { github: "#", live: "https://g-road-hotel-management-system.vercel.app/" },
         icon: <Database className="w-8 h-8 text-gold" />
     },
     {
-        title: "Reux Productions Website",
-        description: "Photography and videography company website. High-quality visual showcase and professional service presentation.",
-        tags: ["React", "Framer Motion", "Tailwind"],
+        title: "Reux Productions",
+        description: "Official website for Reux Productions, showcasing high-quality photography and videography services.",
         links: { github: "#", live: "https://reux-production.vercel.app/" },
         icon: <Code2 className="w-8 h-8 text-gold" />
+    },
+    {
+        title: "Keith Baraka Portfolio",
+        description: "A modern developer portfolio for Keith Baraka showcasing professional skills and project highlights.",
+        links: { github: "#", live: "https://www.keith.pizzatechnologies.co.ke/" },
+        icon: <Layout className="w-8 h-8 text-gold" />
     }
 ];
 
@@ -32,7 +35,7 @@ const ProjectCard = ({ project, index }) => (
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: index * 0.1 }}
         viewport={{ once: true }}
-        className="glass-card p-6 rounded-xl relative group overflow-hidden"
+        className="glass-card p-6 rounded-xl relative group overflow-hidden flex flex-col h-full"
     >
         <div className="absolute top-0 right-0 p-4 opacity-50 group-hover:opacity-100 transition-opacity">
             {project.icon}
@@ -46,20 +49,12 @@ const ProjectCard = ({ project, index }) => (
             {project.description}
         </p>
 
-        <div className="flex flex-wrap gap-2 mb-6">
-            {project.tags.map((tag) => (
-                <span key={tag} className="px-3 py-1 text-xs font-medium bg-white/5 text-gold-light rounded-full border border-gold/10">
-                    {tag}
-                </span>
-            ))}
-        </div>
-
         <div className="flex items-center gap-4 mt-auto">
             <a href={project.links.github} className="flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors">
                 <Github size={18} />
                 <span>Source</span>
             </a>
-            <a href={project.links.live} className="flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors">
+            <a href={project.links.live} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors">
                 <ExternalLink size={18} />
                 <span>Live Demo</span>
             </a>
