@@ -201,7 +201,7 @@ function App() {
                   <p className="text-gold">KCA University (2023-2026)</p>
                 </div>
 
-                <div className="glass-card p-6 rounded-xl border-l-4 border-blue-400 text-center">
+                <div className="glass-card p-6 rounded-xl border-l-4 border-blue-400">
                   <h3 className="text-xl font-bold text-white mb-2">Experience</h3>
                   <p className="text-gray-300">
                     Currently a Web Developer at <a href="https://pizzatechnologies.co.ke" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline hover:text-white transition-colors decoration-2 underline-offset-4">Pizza Technologies</a>
@@ -209,7 +209,7 @@ function App() {
                 </div>
               </div>
 
-              <div className="flex justify-center md:justify-start">
+              <div className="flex justify-center">
                 <a
                   href="/Fidel Kyalo Mutunga-CV.pdf"
                   download
