@@ -30,15 +30,24 @@ function App() {
       {/* Navbar Placeholder - just for navigation context */}
       <nav className="fixed top-0 left-0 right-0 z-50 glass-card border-b border-white/10 px-6 py-4">
         <div className="max-w-6xl mx-auto flex justify-between items-center">
+          {/* Mobile Menu Button - Left Aligned */}
+          <button
+            className="md:hidden text-gold p-2 hover:bg-white/5 rounded-lg transition-colors"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+
           <a href="#home" className="text-xl font-bold text-gold cursor-pointer hover:text-white transition-colors hidden md:block">Fidel Kyalo</a>
-          <div className="flex items-center gap-8">
+
+          <div className="flex items-center gap-8 md:gap-8 flex-1 md:flex-none justify-center md:justify-end">
             <ul className="hidden md:flex gap-6">
               <li><a href="#home" className="hover:text-gold transition-colors">Home</a></li>
               <li><a href="#about" className="hover:text-gold transition-colors">About</a></li>
               <li><a href="#projects" className="hover:text-gold transition-colors">Projects</a></li>
               <li><a href="#contact" className="hover:text-gold transition-colors">Contact</a></li>
             </ul>
-            <div className="flex gap-4 border-l border-white/20 pl-6">
+            <div className="flex gap-4 border-l-0 md:border-l border-white/20 pl-0 md:pl-6">
               <a href="https://www.linkedin.com/in/fidel-mutunga-bb726129a/" target="_blank" rel="noopener noreferrer" className="hover:text-gold hover:scale-110 transition-all text-gray-300">
                 <Linkedin size={20} />
               </a>
@@ -49,14 +58,10 @@ function App() {
                 <Mail size={20} />
               </a>
             </div>
-            {/* Mobile Menu Button */}
-            <button
-              className="md:hidden text-gold p-2 hover:bg-white/5 rounded-lg transition-colors"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
           </div>
+
+          {/* Empty div for layout balance on mobile */}
+          <div className="w-10 md:hidden"></div>
         </div>
 
         {/* Mobile Navigation Menu */}
@@ -111,15 +116,15 @@ function App() {
 
       <main className="pt-20">
         {/* Hero Section */}
-        <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden px-4">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16 z-10 w-full">
+        <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden px-4 -mt-16 md:mt-0">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16 z-10 w-full pt-12 md:pt-0">
             <div className="text-center md:text-left flex-1 relative">
               <motion.div
                 initial={{ x: -100, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <p className="text-gold font-bold mb-6 tracking-wider uppercase text-2xl md:text-3xl">Hi, I'm Fidel Kyalo</p>
+                <p className="text-gold font-bold mb-4 md:mb-6 tracking-wider uppercase text-xl md:text-3xl">Hi, I'm Fidel Kyalo</p>
               </motion.div>
 
               <motion.div
@@ -127,7 +132,7 @@ function App() {
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
+                <h1 className="text-5xl md:text-8xl font-bold mb-6 md:mb-8 leading-tight">
                   Building Digital <br />
                   <span className="text-gold">Experiences</span>
                 </h1>
@@ -138,7 +143,10 @@ function App() {
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
-                <p className="text-2xl text-blue-400 mb-10 font-medium">Fullstack Developer | Information Systems Analyst</p>
+                <div className="text-xl md:text-2xl text-blue-400 mb-8 md:mb-10 font-medium space-y-2 md:space-y-0 text-center md:text-left">
+                  <p>Fullstack Developer</p>
+                  <p className="md:inline md:before:content-['|'] md:before:mx-4">Information Systems Analyst</p>
+                </div>
               </motion.div>
 
               <motion.div
