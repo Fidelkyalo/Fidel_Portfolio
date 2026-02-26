@@ -29,7 +29,7 @@ function App() {
       {/* Navbar Placeholder - just for navigation context */}
       <nav className="fixed top-0 left-0 right-0 z-50 glass-card border-b border-white/10 px-6 py-4">
         <div className="max-w-6xl mx-auto flex justify-between items-center">
-          <a href="#home" className="text-xl font-bold text-gold cursor-pointer hover:text-white transition-colors">Fidel Kyalo</a>
+          <a href="#home" className="text-xl font-bold text-gold cursor-pointer hover:text-white transition-colors hidden md:block">Fidel Kyalo</a>
           <div className="flex items-center gap-8">
             <ul className="flex gap-6">
               <li><a href="#home" className="hover:text-gold transition-colors">Home</a></li>
@@ -96,7 +96,7 @@ function App() {
               </motion.div>
             </div>
 
-            <div className="flex-1 flex justify-center perspective-1000">
+            <div className="flex-1 flex justify-center perspective-1000 hidden md:flex">
               <motion.img
                 src="images/home.png"
                 alt="Developer"
@@ -114,7 +114,7 @@ function App() {
         {/* About Section (Moved Before Projects) */}
         <section id="about" className="py-24 flex flex-col md:flex-row items-center justify-center gap-12 px-6 border-t border-white/5 bg-white/5 relative z-10">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16 w-full">
-            <div className="flex-1 max-w-md groupPerspective">
+            <div className="flex-1 max-w-md groupPerspective hidden md:block">
               <img
                 src="images/about.jpg"
                 alt="About Me"

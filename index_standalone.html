@@ -226,7 +226,7 @@
                 h(CodeBackground),
                 h('nav', { className: "fixed top-0 left-0 right-0 z-50 glass-card border-b border-white/10 px-6 py-4" },
                     h('div', { className: "max-w-6xl mx-auto flex justify-between items-center" }, [
-                        h('a', { href: "#home", className: "text-xl font-bold text-gold hover:text-white transition-colors" }, "Fidel Kyalo"),
+                        h('a', { href: "#home", className: "text-xl font-bold text-gold hover:text-white transition-colors hidden md:block" }, "Fidel Kyalo"),
                         h('div', { className: "flex items-center gap-8" }, [
                             h('ul', { className: "hidden md:flex gap-6" }, [
                                 h('li', null, h('a', { href: "#home", className: "hover:text-gold transition-colors" }, "Home")),
@@ -254,13 +254,13 @@
                                 )
                             ]),
                             h('div', { className: "flex-1 flex justify-center perspective-1000" },
-                                h(motion.img, { src: "./images/home.png", alt: "Developer", className: "w-full max-w-[500px] aspect-[4/5] object-cover rounded-[50%] drop-shadow-2xl animate-float", initial: { scale: 0, opacity: 0 }, animate: { scale: 1, opacity: 1 }, transition: { duration: 1.2, delay: 0.5 } })
+                                h(motion.img, { src: "./images/home.png", alt: "Developer", className: "w-full max-w-[500px] aspect-[4/5] object-cover rounded-[50%] drop-shadow-2xl animate-float hidden md:block", initial: { scale: 0, opacity: 0 }, animate: { scale: 1, opacity: 1 }, transition: { duration: 1.2, delay: 0.5 } })
                             )
                         ])
                     ),
                     h('section', { id: "about", className: "py-24 border-t border-white/5 bg-white/5 relative z-10" },
                         h('div', { className: "max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16 px-6 w-full" }, [
-                            h('div', { className: "flex-1 max-w-md" }, h('img', { src: "./images/about.jpg", alt: "About Me", className: "w-full rounded-2xl drop-shadow-2xl hover:scale-105 transition-transform duration-500 cursor-pointer object-cover" })),
+                            h('div', { className: "flex-1 max-w-md hidden md:block" }, h('img', { src: "./images/about.jpg", alt: "About Me", className: "w-full rounded-2xl drop-shadow-2xl hover:scale-105 transition-transform duration-500 cursor-pointer object-cover" })),
                             h('div', { className: "flex-1" }, [
                                 h('h2', { className: "text-4xl font-bold mb-8 text-gold" }, "About Me & Experience"),
                                 h('p', { className: "text-gray-300 mb-8 leading-loose text-lg" }, "I am a passionate Full Stack Developer based in Nairobi. Specializing in building accessible, performant, and beautiful web applications with modern technologies."),
