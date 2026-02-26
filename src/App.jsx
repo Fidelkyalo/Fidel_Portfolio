@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Projects from './components/Projects';
 import CodeBackground from './components/CodeBackground';
-import { Phone, Mail, Linkedin, Github, ArrowUp } from 'lucide-react';
+import { Phone, Mail, Linkedin, Github, ArrowUp, Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 function App() {
   const [showScroll, setShowScroll] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const checkScrollTop = () => {
@@ -31,7 +32,7 @@ function App() {
         <div className="max-w-6xl mx-auto flex justify-between items-center">
           <a href="#home" className="text-xl font-bold text-gold cursor-pointer hover:text-white transition-colors hidden md:block">Fidel Kyalo</a>
           <div className="flex items-center gap-8">
-            <ul className="flex gap-6">
+            <ul className="hidden md:flex gap-6">
               <li><a href="#home" className="hover:text-gold transition-colors">Home</a></li>
               <li><a href="#about" className="hover:text-gold transition-colors">About</a></li>
               <li><a href="#projects" className="hover:text-gold transition-colors">Projects</a></li>
@@ -48,8 +49,64 @@ function App() {
                 <Mail size={20} />
               </a>
             </div>
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden text-gold p-2 hover:bg-white/5 rounded-lg transition-colors"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
         </div>
+
+        {/* Mobile Navigation Menu */}
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="md:hidden absolute top-full left-0 right-0 glass-card border-b border-white/10 py-6 px-6 bg-black/95 backdrop-blur-xl"
+          >
+            <ul className="flex flex-col gap-6">
+              <li>
+                <a
+                  href="#home"
+                  className="text-xl font-medium hover:text-gold transition-colors block"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Home
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#about"
+                  className="text-xl font-medium hover:text-gold transition-colors block"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  About
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#projects"
+                  className="text-xl font-medium hover:text-gold transition-colors block"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Projects
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  className="text-xl font-medium hover:text-gold transition-colors block"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </motion.div>
+        )}
       </nav>
 
       <main className="pt-20">
