@@ -44,7 +44,7 @@ function App() {
               <a href="https://github.com/Fidelkyalo" target="_blank" rel="noopener noreferrer" className="hover:text-gold hover:scale-110 transition-all text-gray-300">
                 <Github size={20} />
               </a>
-              <a href="mailto:fidel@pizzatechnologies.co.ke" className="hover:text-gold hover:scale-110 transition-all text-gray-300">
+              <a href="mailto:fidelkm16@gmail.com" className="hover:text-gold hover:scale-110 transition-all text-gray-300">
                 <Mail size={20} />
               </a>
             </div>
@@ -163,25 +163,17 @@ function App() {
                 <span className="text-lg font-medium">+254 112 063 383</span>
               </a>
 
-              <a href="mailto:fidel@pizzatechnologies.co.ke" className="glass-card px-8 py-6 rounded-xl flex items-center gap-4 hover:scale-105 transition-transform w-[90%] md:w-[45%] justify-center group border border-white/5 hover:border-gold/30 bg-black/50">
-                <Mail className="text-gold group-hover:text-white transition-colors w-6 h-6" />
-                <span className="text-lg font-medium">fidel@pizzatechnologies.co.ke</span>
-              </a>
-
               <a href="mailto:fidelkm16@gmail.com" className="glass-card px-8 py-6 rounded-xl flex items-center gap-4 hover:scale-105 transition-transform w-[90%] md:w-[45%] justify-center group border border-white/5 hover:border-gold/30 bg-black/50">
                 <Mail className="text-gold group-hover:text-white transition-colors w-6 h-6" />
                 <span className="text-lg font-medium">fidelkm16@gmail.com</span>
               </a>
+
 
               <a href="https://www.linkedin.com/in/fidel-mutunga-bb726129a/" target="_blank" rel="noopener noreferrer" className="glass-card px-8 py-6 rounded-xl flex items-center gap-4 hover:scale-105 transition-transform w-[90%] md:w-[45%] justify-center group border border-white/5 hover:border-gold/30 bg-black/50">
                 <Linkedin className="text-gold group-hover:text-white transition-colors w-6 h-6" />
                 <span className="text-lg font-medium">Connect on LinkedIn</span>
               </a>
 
-              <a href="https://github.com/Fidelkyalo" target="_blank" rel="noopener noreferrer" className="glass-card px-8 py-6 rounded-xl flex items-center gap-4 hover:scale-105 transition-transform w-[90%] md:w-[45%] justify-center group border border-white/5 hover:border-gold/30 bg-black/50">
-                <Github className="text-gold group-hover:text-white transition-colors w-6 h-6" />
-                <span className="text-lg font-medium">Follow on GitHub</span>
-              </a>
             </div>
           </div>
         </section>
@@ -189,15 +181,7 @@ function App() {
 
       <footer className="py-8 text-center text-gray-500 text-sm border-t border-white/10">
         <p>
-          &copy; 2026 Fidel Kyalo. All rights reserved || Crafted by{' '}
-          <a
-            href="https://pizzatechnologies.co.ke"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gold hover:text-white transition-colors hover:underline"
-          >
-            Pizza Technologies
-          </a>
+          &copy; 2026 Fidel Kyalo. All rights reserved
         </p>
       </footer>
 
