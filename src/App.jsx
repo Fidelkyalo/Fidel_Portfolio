@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Projects from './components/Projects';
 import CodeBackground from './components/CodeBackground';
-import { Phone, Mail, Linkedin, Github, ArrowUp, Menu, X } from 'lucide-react';
+import { Phone, Mail, Linkedin, Github, ArrowUp, Menu, X, Download } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 function App() {
@@ -201,12 +201,23 @@ function App() {
                   <p className="text-gold">KCA University (2023-2026)</p>
                 </div>
 
-                <div className="glass-card p-6 rounded-xl border-l-4 border-blue-400">
+                <div className="glass-card p-6 rounded-xl border-l-4 border-blue-400 text-center">
                   <h3 className="text-xl font-bold text-white mb-2">Experience</h3>
                   <p className="text-gray-300">
                     Currently a Web Developer at <a href="https://pizzatechnologies.co.ke" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline hover:text-white transition-colors decoration-2 underline-offset-4">Pizza Technologies</a>
                   </p>
                 </div>
+              </div>
+
+              <div className="flex justify-center md:justify-start">
+                <a
+                  href="/Fidel Kyalo Mutunga-CV.pdf"
+                  download
+                  className="flex items-center gap-3 px-8 py-4 bg-white/10 hover:bg-gold text-white hover:text-black font-bold rounded-xl transition-all duration-300 transform hover:scale-105 border border-white/10 hover:border-gold"
+                >
+                  <Download size={20} />
+                  Download CV
+                </a>
               </div>
             </div>
           </div>

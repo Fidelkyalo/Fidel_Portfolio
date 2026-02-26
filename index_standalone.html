@@ -297,9 +297,19 @@
                                         h('p', { className: "text-gray-300" }, "Bsc. Computer Science specialized with Software development"),
                                         h('p', { className: "text-gold" }, "KCA University (2023-2026)")
                                     ]),
-                                    h('div', { className: "glass-card p-6 rounded-xl border-l-4 border-blue-400" }, [
+                                    h('div', { className: "glass-card p-6 rounded-xl border-l-4 border-blue-400 text-center" }, [
                                         h('h3', { className: "text-xl font-bold text-white" }, "Experience"),
                                         h('p', { className: "text-gray-300" }, ["Web Developer at ", h('a', { href: "https://pizzatechnologies.co.ke", target: "_blank", className: "text-gold hover:underline" }, "Pizza Technologies")])
+                                    ])
+                                ]),
+                                h('div', { className: "flex justify-center md:justify-start mt-8" }, [
+                                    h('a', {
+                                        href: "./Fidel Kyalo Mutunga-CV.pdf",
+                                        download: true,
+                                        className: "flex items-center gap-3 px-8 py-4 bg-white/10 hover:bg-gold text-white hover:text-black font-bold rounded-xl transition-all duration-300 transform hover:scale-105 border border-white/10 hover:border-gold"
+                                    }, [
+                                        h(Icon, { name: "download", size: 20 }),
+                                        h('span', null, "Download CV")
                                     ])
                                 ])
                             ])
