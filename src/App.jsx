@@ -143,9 +143,9 @@ function App() {
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
-                <div className="text-xl md:text-2xl text-blue-400 mb-8 md:mb-10 font-medium space-y-2 md:space-y-0 text-center md:text-left">
+                <div className="text-xl md:text-2xl text-blue-400 mb-8 md:mb-10 font-medium space-y-2 text-center md:text-left">
                   <p>Fullstack Developer</p>
-                  <p className="md:inline md:before:content-['|'] md:before:mx-4">Information Systems Analyst</p>
+                  <p>Information Systems Analyst</p>
                 </div>
               </motion.div>
 
