@@ -4,12 +4,6 @@ import { Github, ExternalLink, Code2, Layout, Database } from 'lucide-react';
 
 const projects = [
     {
-        title: "(pending) Water for Children Africa",
-        description: "A platform dedicated to addressing the water crisis in Africa, focusing on clean water access for children and sustainable solutions.",
-        links: { github: "#", live: "https://water-for-children-africa.vercel.app/" },
-        icon: <Layout className="w-8 h-8 text-gold" />
-    },
-    {
         title: "Hope Valley Scholars",
         description: "An educational platform for Hope Valley Scholars focusing on accessibility and scholarship management. (Ongoing)",
         links: { github: "#", live: "https://hope-valley-scholars.vercel.app/" },
@@ -31,6 +25,12 @@ const projects = [
         title: "Keith Baraka Portfolio",
         description: "A modern developer portfolio for Keith Baraka showcasing professional skills and project highlights.",
         links: { github: "#", live: "https://www.keith.pizzatechnologies.co.ke/" },
+        icon: <Layout className="w-8 h-8 text-gold" />
+    },
+    {
+        title: "Water for Children Africa (pending)",
+        description: "A platform dedicated to addressing the water crisis in Africa, focusing on clean water access for children and sustainable solutions.",
+        links: { github: "#", live: "https://water-for-children-africa.vercel.app/" },
         icon: <Layout className="w-8 h-8 text-gold" />
     }
 ];
