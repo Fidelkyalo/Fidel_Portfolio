@@ -1,36 +1,36 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, ExternalLink, Code2, Layout, Database } from 'lucide-react';
+import { ExternalLink, Code2, Layout, Database } from 'lucide-react';
 
 const projects = [
     {
         title: "Hope Valley Scholars",
         description: "An educational platform for Hope Valley Scholars focusing on accessibility and scholarship management. (Ongoing)",
-        links: { github: "#", live: "https://hope-valley-scholars.vercel.app/" },
+        links: { live: "https://hope-valley-scholars.vercel.app/" },
         icon: <Layout className="w-8 h-8 text-gold" />
     },
     {
         title: "Hotel Management System",
         description: "A comprehensive hotel management solution featuring room bookings, status tracking, and guest management. (Ongoing)",
-        links: { github: "#", live: "https://g-road-hotel-management-system.vercel.app/" },
+        links: { live: "https://g-road-hotel-management-system.vercel.app/" },
         icon: <Database className="w-8 h-8 text-gold" />
     },
     {
         title: "Reux Productions",
         description: "Official website for Reux Productions, showcasing high-quality photography and videography services.",
-        links: { github: "#", live: "https://reux-production.vercel.app/" },
+        links: { live: "https://reux-production.vercel.app/" },
         icon: <Code2 className="w-8 h-8 text-gold" />
     },
     {
         title: "Keith Baraka Portfolio",
         description: "A modern developer portfolio for Keith Baraka showcasing professional skills and project highlights.",
-        links: { github: "#", live: "https://www.keith.pizzatechnologies.co.ke/" },
+        links: { live: "https://www.keith.pizzatechnologies.co.ke/" },
         icon: <Layout className="w-8 h-8 text-gold" />
     },
     {
         title: "Water for Children Africa (pending)",
         description: "A platform dedicated to addressing the water crisis in Africa, focusing on clean water access for children and sustainable solutions.",
-        links: { github: "#", live: "https://water-for-children-africa.vercel.app/" },
+        links: { live: "https://water-for-children-africa.vercel.app/" },
         icon: <Layout className="w-8 h-8 text-gold" />
     }
 ];
@@ -56,10 +56,6 @@ const ProjectCard = ({ project, index }) => (
         </p>
 
         <div className="flex items-center gap-4 mt-auto">
-            <a href={project.links.github} className="flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors">
-                <Github size={18} />
-                <span>Source</span>
-            </a>
             <a href={project.links.live} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors">
                 <ExternalLink size={18} />
                 <span>Live Demo</span>
