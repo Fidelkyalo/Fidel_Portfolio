@@ -32,6 +32,12 @@ const projects = [
         description: "A platform dedicated to addressing the water crisis in Africa, focusing on clean water access for children and sustainable solutions.",
         links: { live: "https://water-for-children-africa.vercel.app/" },
         icon: <Layout className="w-8 h-8 text-gold" />
+    },
+    {
+        title: "MANDI TRENDZ",
+        description: "A website with an integrated inventory management system, designed for seamless retail operations. (Ongoing)",
+        links: { live: "https://mandi-trendz.vercel.app/" },
+        icon: <Database className="w-8 h-8 text-gold" />
     }
 ];
 
