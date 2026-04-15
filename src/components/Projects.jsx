@@ -10,6 +10,12 @@ const projects = [
         icon: <Layout className="w-8 h-8 text-gold" />
     },
     {
+        title: "PIZZA TECHNOLOGIES",
+        description: "Official website for Pizza Technologies, a premium tech company delivering cutting-edge digital solutions and professional web services.",
+        links: { live: "https://pizzatechnologies.co.ke/" },
+        icon: <Layout className="w-8 h-8 text-gold" />
+    },
+    {
         title: "Hotel Management System",
         description: "A comprehensive hotel management solution featuring room bookings, status tracking, and guest management. (Ongoing)",
         links: { live: "https://g-road-hotel-management-system.vercel.app/" },
@@ -20,12 +26,6 @@ const projects = [
         description: "Official website for Reux Productions, showcasing high-quality photography and videography services.",
         links: { live: "https://reux-production.vercel.app/" },
         icon: <Code2 className="w-8 h-8 text-gold" />
-    },
-    {
-        title: "Keith Baraka Portfolio",
-        description: "A modern developer portfolio for Keith Baraka showcasing professional skills and project highlights.",
-        links: { live: "https://www.keith.pizzatechnologies.co.ke/" },
-        icon: <Layout className="w-8 h-8 text-gold" />
     },
     {
         title: "Water for Children Africa (pending)",
