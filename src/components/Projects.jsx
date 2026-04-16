@@ -6,7 +6,7 @@ const projects = [
     {
         title: "Hope Valley Scholars",
         description: "An educational platform for Hope Valley Scholars focusing on accessibility and scholarship management. (Ongoing)",
-        links: { live: "https://hope-valley-scholars.vercel.app/" },
+        links: { live: "https://www.hopevalleyscholars.org/" },
         icon: <Layout className="w-8 h-8 text-gold" />
     },
     {
