@@ -38,7 +38,9 @@ function App() {
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
 
-          <a href="#home" className="text-xl font-bold text-gold cursor-pointer hover:text-white transition-colors hidden md:block">Fidel Kyalo</a>
+          <a href="#home" className="cursor-pointer hidden md:block hover:opacity-80 transition-opacity">
+            <img src="images/fidel logo.png" alt="Fidel Kyalo" className="h-10 object-contain" />
+          </a>
 
           <div className="flex items-center gap-8 md:gap-8 flex-1 md:flex-none justify-center md:justify-end">
             <ul className="hidden md:flex gap-6">
@@ -149,8 +151,9 @@ function App() {
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
                 <div className="text-xl md:text-2xl text-blue-400 mb-8 md:mb-10 font-medium space-y-2 text-center md:text-left">
-                  <p>Fullstack Developer</p>
+                  <p>Software Engineer</p>
                   <p>Information Systems Analyst</p>
+                  <p>Full Stack Developer</p>
                 </div>
               </motion.div>
 
@@ -186,7 +189,7 @@ function App() {
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16 w-full">
             <div className="flex-1 max-w-md groupPerspective hidden md:block">
               <img
-                src="images/about.jpg"
+                src="images/Fidel..png"
                 alt="About Me"
                 className="w-full rounded-2xl drop-shadow-2xl animate-float hover:scale-105 hover:-rotate-2 transition-all duration-500 cursor-pointer object-cover"
                 style={{ animationDelay: '1s' }}
@@ -216,7 +219,7 @@ function App() {
 
               <div className="flex justify-center">
                 <a
-                  href="/Fidel Kyalo Mutunga-CV.pdf"
+                  href="/FIDEL KYALO MUTUNGA CV.pdf"
                   download
                   className="flex items-center gap-3 px-8 py-4 bg-white/10 hover:bg-gold text-white hover:text-black font-bold rounded-xl transition-all duration-300 transform hover:scale-105 border border-white/10 hover:border-gold"
                 >
