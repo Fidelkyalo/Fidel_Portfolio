@@ -217,7 +217,16 @@ function App() {
                 </div>
               </div>
 
-              <div className="flex justify-center">
+              <div className="flex flex-wrap justify-center gap-4">
+                <a
+                  href="/FIDEL KYALO MUTUNGA CV.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 border border-white/10 hover:border-white/30"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></svg>
+                  Preview CV
+                </a>
                 <a
                   href="/FIDEL KYALO MUTUNGA CV.pdf"
                   download
