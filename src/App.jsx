@@ -38,8 +38,9 @@ function App() {
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
 
-          <a href="#home" className="cursor-pointer hidden md:block hover:opacity-80 transition-opacity">
+          <a href="#home" className="cursor-pointer hidden md:flex items-center gap-3 hover:opacity-80 transition-opacity">
             <img src="images/fidel logo.png" alt="Fidel Kyalo" className="h-10 object-contain" />
+            <span className="text-gold font-bold text-lg tracking-widest uppercase">Fidel Kyalo</span>
           </a>
 
           <div className="flex items-center gap-8 md:gap-8 flex-1 md:flex-none justify-center md:justify-end">
@@ -198,8 +199,7 @@ function App() {
             <div className="flex-1 max-w-xl">
               <h2 className="text-4xl font-bold mb-8 text-gold">About Me & Experience</h2>
               <p className="text-gray-300 mb-8 leading-loose text-lg">
-                I am a passionate Full Stack Developer based in Nairobi. With a strong foundation in modern web technologies,
-                I specialize in building accessible, performant, and beautiful web applications.
+                I am a Software Engineer, Information Systems Analyst, and Full Stack Developer crafting premium digital solutions where innovation, precision, and elegant engineering converge. My work is centered on scalable architectures, intelligent systems, and refined web experiences built to the highest standard.
               </p>
 
               <div className="space-y-6 mb-8">
