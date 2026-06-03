@@ -188,9 +188,9 @@ function App() {
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16 w-full">
             <div className="flex-1 max-w-md groupPerspective hidden md:block">
               <img
-                src="images/favicon.png"
+                src="images/Fidel..png"
                 alt="About Me"
-                className="w-full rounded-2xl drop-shadow-2xl animate-float hover:scale-105 hover:-rotate-2 transition-all duration-500 cursor-pointer object-contain"
+                className="w-full rounded-2xl drop-shadow-2xl animate-float hover:scale-105 hover:-rotate-2 transition-all duration-500 cursor-pointer object-cover"
                 style={{ animationDelay: '1s' }}
               />
             </div>
