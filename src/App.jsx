@@ -32,7 +32,7 @@ function App() {
         <div className="max-w-6xl mx-auto flex justify-between items-center">
           {/* Logo - always visible on left for both desktop and mobile */}
           <a href="#home" className="cursor-pointer flex items-center gap-3 hover:opacity-80 transition-opacity">
-            <img src="images/favicon.png" alt="Fidel Kyalo" className="h-10 object-contain" />
+            <img src="images/Logo fidel.png" alt="Fidel Kyalo" className="h-10 object-contain" />
             <span className="text-gold font-bold text-lg tracking-widest uppercase hidden md:inline">Fidel Kyalo</span>
           </a>
 
