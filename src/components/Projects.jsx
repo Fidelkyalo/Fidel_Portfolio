@@ -5,7 +5,7 @@ import { ExternalLink, Code2, Layout, Database } from 'lucide-react';
 const projects = [
     {
         title: "Hope Valley Scholars",
-        description: "An educational platform for Hope Valley Scholars focusing on accessibility and scholarship management. (Ongoing)",
+        description: "An educational platform for Hope Valley Scholars focusing on accessibility and scholarship management.",
         links: { live: "https://www.hopevalleyscholars.org/" },
         icon: <Layout className="w-8 h-8 text-gold" />
     },
@@ -16,8 +16,14 @@ const projects = [
         icon: <Layout className="w-8 h-8 text-gold" />
     },
     {
+        title: "Restaurant Management System",
+        description: "A comprehensive restaurant management solution for streamlining operations, order tracking, and inventory management.",
+        links: { live: "https://kolay-restaurant.vercel.app/" },
+        icon: <Database className="w-8 h-8 text-gold" />
+    },
+    {
         title: "Hotel Management System",
-        description: "A comprehensive hotel management solution featuring room bookings, status tracking, and guest management. (Ongoing)",
+        description: "A comprehensive hotel management solution featuring room bookings, status tracking, and guest management.",
         links: { live: "https://g-road-hotel-management-system.vercel.app/" },
         icon: <Database className="w-8 h-8 text-gold" />
     },
