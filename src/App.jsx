@@ -217,7 +217,7 @@ function App() {
 
               <div className="flex flex-wrap justify-center gap-4">
                 <a
-                  href="/Fidel_Kyalo_Mutunga_CV.pdf"
+                  href="Fidel_Kyalo_Mutunga_CV.pdf"
                   download="Fidel_Kyalo_Mutunga_CV.pdf"
                   className="flex items-center gap-3 px-10 py-4 bg-white/10 hover:bg-gold text-white hover:text-black font-bold rounded-full transition-all duration-300 transform hover:scale-105 border border-white/20 hover:border-gold"
                 >
