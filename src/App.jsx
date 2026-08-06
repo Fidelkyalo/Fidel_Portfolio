@@ -111,15 +111,76 @@ function App() {
             </h1>
           </motion.div>
 
-          {/* Three-column layout: left skills | face | right skills */}
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start justify-center gap-6 md:gap-10 z-10 w-full py-6">
+          {/* Mobile layout — no face, clean dual-role cards */}
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.5 }}
+            className="md:hidden max-w-lg mx-auto w-full px-4 pb-6"
+          >
+            {/* Dual role titles */}
+            <div className="flex items-stretch gap-3 mb-6">
+              {/* Software Engineer */}
+              <div className="flex-1 flex flex-col items-center gap-2 px-4 py-3 rounded-2xl border border-gold/40 bg-gold/5">
+                <span className="w-2 h-2 rounded-full bg-gold flex-shrink-0"></span>
+                <span className="text-gold font-bold text-xs tracking-widest uppercase text-center leading-snug">
+                  Software<br />Engineer
+                </span>
+              </div>
+
+              {/* Divider */}
+              <div className="flex items-center justify-center px-1">
+                <div className="w-px h-full bg-gradient-to-b from-transparent via-white/20 to-transparent"></div>
+              </div>
+
+              {/* Information Systems Analyst */}
+              <div className="flex-1 flex flex-col items-center gap-2 px-4 py-3 rounded-2xl border border-gray-400/30 bg-white/5">
+                <span className="w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
+                <span className="text-gray-300 font-bold text-xs tracking-widest uppercase text-center leading-snug">
+                  Information<br />Systems Analyst
+                </span>
+              </div>
+            </div>
+
+            {/* Two-column skills grid */}
+            <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 mb-6">
+              {/* Left — Software Engineer skills */}
+              <ul className="space-y-1.5">
+                {leftSkills.map((skill, i) => (
+                  <li key={i} className="flex items-start gap-1.5 text-xs text-gray-300">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0 mt-[3px]"></span>
+                    <span className="leading-relaxed">{skill}</span>
+                  </li>
+                ))}
+              </ul>
+              {/* Right — Information Systems Analyst skills */}
+              <ul className="space-y-1.5">
+                {rightSkills.map((skill, i) => (
+                  <li key={i} className="flex items-start gap-1.5 text-xs text-gray-300">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0 mt-[3px]"></span>
+                    <span className="leading-relaxed">{skill}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* View Work button */}
+            <div className="text-center">
+              <a href="#projects" className="px-10 py-3 bg-gold text-black font-bold text-base rounded-full hover:bg-white transition-colors inline-block hover:scale-105 transform duration-300">
+                View Work
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Three-column layout: left skills | face | right skills — desktop only */}
+          <div className="hidden md:flex max-w-7xl mx-auto flex-row items-start justify-center gap-6 md:gap-10 z-10 w-full py-6">
 
             {/* LEFT COLUMN — Software Engineer */}
             <motion.div
               initial={{ x: -60, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="hidden md:flex flex-col items-end flex-1 pt-8"
+              className="flex flex-col items-end flex-1 pt-8"
             >
               <div className="text-right mb-4">
                 <span className="text-gold font-bold text-lg tracking-widest uppercase">Software Engineer</span>
