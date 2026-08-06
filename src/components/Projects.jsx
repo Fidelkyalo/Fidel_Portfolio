@@ -34,17 +34,23 @@ const projects = [
         icon: <Code2 className="w-8 h-8 text-gold" />
     },
     {
+        title: "Help Desk System",
+        description: "A full-featured help desk and ticketing system for managing support requests, tracking issues, and streamlining customer service operations.",
+        links: { live: "https://help-desk-jade-nu.vercel.app/" },
+        icon: <Database className="w-8 h-8 text-gold" />
+    },
+    {
         title: "Water for Children Africa (pending)",
         description: "A platform dedicated to addressing the water crisis in Africa, focusing on clean water access for children and sustainable solutions.",
         links: { live: "https://water-for-children-africa.vercel.app/" },
         icon: <Layout className="w-8 h-8 text-gold" />
     },
-    {
-        title: "MANDI TRENDZ",
-        description: "A website with an integrated inventory management system, designed for seamless retail operations. (Ongoing)",
-        links: { live: "https://mandi-trendz.vercel.app/" },
-        icon: <Database className="w-8 h-8 text-gold" />
-    }
+    // {
+    //     title: "MANDI TRENDZ",
+    //     description: "A website with an integrated inventory management system, designed for seamless retail operations. (Ongoing)",
+    //     links: { live: "https://mandi-trendz.vercel.app/" },
+    //     icon: <Database className="w-8 h-8 text-gold" />
+    // }
 ];
 
 const ProjectCard = ({ project, index }) => (
