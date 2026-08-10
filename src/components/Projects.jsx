@@ -12,7 +12,7 @@ const projects = [
     {
         title: "PIZZA TECHNOLOGIES",
         description: "Official website for Pizza Technologies, a premium tech company delivering cutting-edge digital solutions and professional web services.",
-        links: { live: "https://pizzatechnologies.co.ke/" },
+        links: { live: "https://pizza-tech.vercel.app/" },
         icon: <Layout className="w-8 h-8 text-gold" />
     },
     {
