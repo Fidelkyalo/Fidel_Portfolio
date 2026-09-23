@@ -40,9 +40,15 @@ const projects = [
         icon: <Database className="w-8 h-8 text-gold" />
     },
     {
-        title: "Water for Children Africa (pending)",
-        description: "A platform dedicated to addressing the water crisis in Africa, focusing on clean water access for children and sustainable solutions.",
-        links: { live: "https://water-for-children-africa.vercel.app/" },
+        title: "Heho Coffee House",
+        description: "A premium coffee house website for Heho Coffee House — single-origin coffee, hand-poured espresso, and small-batch roasting. Open until midnight.",
+        links: { live: "https://heho-coffee-house.vercel.app/" },
+        icon: <Layout className="w-8 h-8 text-gold" />
+    },
+    {
+        title: "Masaa",
+        description: "MASAA — It's About Time! A modern scheduling and calendar management application built for teams and individuals.",
+        links: { live: "https://masaa-xi.vercel.app/" },
         icon: <Layout className="w-8 h-8 text-gold" />
     },
     // {
